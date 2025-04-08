@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayHive - Transaction History</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <style>
+        .transactions-container {
+            padding: 40px 0;
+        }
+        
+        .transaction-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: rgba(15, 23, 42, 0.7);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .transaction-table th, .transaction-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(126, 34, 206, 0.3);
+        }
+        
+        .transaction-table th {
+            background-color: rgba(126, 34, 206, 0.3);
+            color: var(--light);
+            font-weight: 600;
+        }
+        
+        .transaction-table tr:hover {
+            background-color: rgba(126, 34, 206, 0.1);
+        }
+        
+        .status-completed {
+            color: var(--success);
+            font-weight: 500;
+        }
+        
+        .status-pending {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        .status-failed {
+            color: var(--danger);
+            font-weight: 500;
+        }
+        
+        .empty-transactions {
+            text-align: center;
+            padding: 40px;
+            background-color: rgba(15, 23, 42, 0.7);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Play<span>Hive</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/tournament">Tournaments</a></li>
+                    <li><a href="/leaderboard">Leaderboard</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <% if (locals.currentUser) { %>
+                    <span class="user-welcome">Welcome, <%= currentUser.username %></span>
+                    <a href="/logout" class="btn btn-outline">Logout</a>
+                <% } else { %>
+                    <a href="/login" class="btn btn-outline">Login</a>
+                    <a href="/register" class="btn btn-primary">Register</a>
+                <% } %>
+            </div>
+        </div>
+    </header>
+
+    <!-- Transactions Section -->
+    <section class="transactions-container">
+        <div class="container">
+            <div class="section-header">
+                <h2>Transaction History</h2>
+            </div>
+            
+            <% if (transactions && transactions.length > 0) { %>
+                <table class="transaction-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Tournament</th>
+                            <th>Amount</th>
+                            <th>Payment ID</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% transactions.forEach(transaction => { %>
+                            <tr>
+                                <td><%= new Date(transaction.createdAt).toLocaleString() %></td>
+                                <td><%= transaction.tournamentName %></td>
+                                <td>₹<%= transaction.amount %></td>
+                                <td><%= transaction.paymentId %></td>
+                                <td class="status-<%= transaction.status %>"><%= transaction.status.charAt(0).toUpperCase() + transaction.status.slice(1) %></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <div class="empty-transactions">
+                    <h3>No transactions found</h3>
+                    <p>You haven't made any payments yet. Join a tournament to get started!</p>
+                    <a href="/join" class="btn btn-primary" style="margin-top: 20px;">Browse Tournaments</a>
+                </div>
+            <% } %>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About PlayHive</h3>
+                    <p>PlayHive is the premier platform for BGMI tournament management, offering seamless registration, competitive gameplay, and exciting prizes.</p>
+                    <div class="social-links">
+                        <a href="#"><i>FB</i></a>
+                        <a href="#"><i>TW</i></a>
+                        <a href="#"><i>IG</i></a>
+                        <a href="#"><i>YT</i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/tournament">Tournaments</a></li>
+                        <li><a href="/leaderboard">Leaderboard</a></li>
+                        <li><a href="#">Rules</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: playhive04@gmail.com</p>
+                    <p>Phone: +91 8624077761</p>
+                    <p>Address: 123 Gaming Street, Esports City, India</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 PlayHive. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

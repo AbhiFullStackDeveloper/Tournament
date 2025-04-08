@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayHive - Leaderboard</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+
+    
+</head>
+<body>
+    <!-- Header Section (Same as Home Page) -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Play<span>Hive</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/tournament">Tournaments</a></li>
+                    <li><a href="/leaderboard">Leaderboard</a></li>
+                    <li><a href="/about" >About</a></li>
+                    <li><a href="/contact" style="color: var(--secondary);">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="/logout" class="btn btn-outline">LogOut</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Leaderboard Hero Section -->
+    <section class="leaderboard-hero">
+        <div class="container">
+            <div class="section-header">
+                <h1>Leaderboard</h1>
+                <p>Track the top players and teams in our competitive BGMI tournaments</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaderboard Sections -->
+    <section class="leaderboard">
+       
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Not Available</h2>
+            <p></p>
+            <a href="#" class="btn btn-primary">Click Here</a>
+        </div>
+    </section>
+
+    <!-- Footer Section (Same as Home Page) -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About PlayHive</h3>
+                    <p>PlayHive is the premier platform for BGMI tournament management, offering seamless registration, competitive gameplay, and exciting prizes.</p>
+                    <div class="social-links">
+                        <a href="#"><i>FB</i></a>
+                        <a href="#"><i>TW</i></a>
+                        <a href="#"><i>IG</i></a>
+                        <a href="#"><i>YT</i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Tournaments</a></li>
+                        <li><a href="#">Leaderboard</a></li>
+                        <li><a href="#">Rules</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: info@playhive.com</p>
+                    <p>Phone: +91 9876543210</p>
+                    <p>Address: 123 Gaming Street, Esports City, India</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 PlayHive. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation highlighting
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    navLinks.forEach(l => l.style.color = '');
+                    this.style.color = 'var(--secondary)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

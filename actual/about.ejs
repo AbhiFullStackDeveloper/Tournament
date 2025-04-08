@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayHive - Leaderboard</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+
+    
+</head>
+<body>
+    <!-- Header Section (Same as Home Page) -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Play<span>Hive</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/tournament">Tournaments</a></li>
+                    <li><a href="/leaderboard">Leaderboard</a></li>
+                    <li><a href="/about" style="color: var(--secondary);">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="/login" class="btn btn-outline">Login</a>
+                <a href="/register" class="btn btn-primary">Register</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Leaderboard Hero Section -->
+    <section class="leaderboard-hero">
+        <div class="container">
+            <div class="section-header">
+                <h1>About</h1>
+                <p>Did You Know ?</p> 
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Hey Buddy !</h2>
+            <p>
+                We record information relating to your use of BattleShelter, 
+                such as the searches you undertake, the pages you view, your browser type, IP address, location, requested URL, referring URL, and timestamp information. We use this type of information to administer BattleShelter and provide the highest possible level of security and service to you. We also use this information in the aggregate to perform statistical analyses of User behavior and characteristics in order to 
+                measure interest in and use of the various areas of BattleShelter. However, you cannot be identified from this aggregate information.</p>
+            <a href="#" class="btn btn-primary">Click Here</a>
+        </div>
+    </section>
+
+    <!-- Footer Section (Same as Home Page) -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About PlayHive</h3>
+                    <p>PlayHive is the premier platform for BGMI tournament management, offering seamless registration, competitive gameplay, and exciting prizes.</p>
+                    <div class="social-links">
+                        <a href="#"><i>FB</i></a>
+                        <a href="#"><i>TW</i></a>
+                        <a href="#"><i>IG</i></a>
+                        <a href="#"><i>YT</i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Tournaments</a></li>
+                        <li><a href="#">Leaderboard</a></li>
+                        <li><a href="#">Rules</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: info@playhive.com</p>
+                    <p>Phone: +91 9876543210</p>
+                    <p>Address: 123 Gaming Street, Esports City, India</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 PlayHive. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation highlighting
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    navLinks.forEach(l => l.style.color = '');
+                    this.style.color = 'var(--secondary)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

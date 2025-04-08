@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayHive - Home</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Play<span>Hive</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/" style="color: var(--secondary);">Home</a></li>
+                    <li><a href="/tournament">Tournaments</a></li>
+                    <li><a href="/leaderboard">Leaderboard</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <% if (locals.currentUser) { %>
+                        <li><a href="/transactions">My Transactions</a></li>
+                    <% } %>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <% if (locals.currentUser) { %>
+                    <span class="user-welcome">Welcome, <%= currentUser.username %></span>
+                    <a href="/logout" class="btn btn-outline">Logout</a>
+                <% } else { %>
+                    <a href="/login" class="btn btn-outline">Login</a>
+                    <a href="/register" class="btn btn-primary">Register</a>
+                <% } %>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <section class="main-hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Dominate the Battleground with PlayHive</h1>
+                <p>Join India's premier BGMI tournament platform. Compete against the best players, win massive prize pools, and establish your gaming legacy today.</p>
+                <div class="hero-buttons">
+                    <a href="/tournament" class="btn btn-primary">Join a Tournament</a>
+                    <a href="/tournament" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose PlayHive?</h2>
+            </div>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Competitive Tournaments</h3>
+                    <p>Participate in daily, weekly and monthly tournaments with various entry fees and prize pools to match your skill level.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">💸</div>
+                    <h3>Instant Payouts</h3>
+                    <p>Receive your winnings quickly and securely through UPI, Paytm, or direct bank transfer after tournament completion.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Team Management</h3>
+                    <p>Create and manage your squad with our intuitive team management system. Coordinate with teammates efficiently.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Detailed Statistics</h3>
+                    <p>Track your performance with comprehensive statistics and analytics to improve your gameplay and strategy.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Anti-Cheat System</h3>
+                    <p>Our advanced anti-cheat system ensures fair gameplay for all participants, maintaining the integrity of competitions.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile-Friendly</h3>
+                    <p>Access PlayHive on any device. Register, manage, and track tournaments directly from your smartphone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Tournaments Section -->
+    <section class="recent-tournaments">
+        <div class="container">
+            <div class="section-header">
+                <h2>Upcoming Tournaments</h2>
+            </div>
+            <div class="tournament-grid">
+                <!-- Tournament 1 -->
+                <div class="tournament-card">
+                    <div class="tournament-map">
+                        <img src="/images/prol.gif" alt="Erangel Championship">
+                        <div class="map-name">Pro League Season 5</div>
+                    </div>
+                    <div class="tournament-info">
+                        <h3>BGMI Pro Championship</h3>
+                        <div class="tournament-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Entry Fee</span>
+                                <span class="meta-value">₹499</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Prize Pool</span>
+                                <span class="meta-value">₹25,000</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Teams</span>
+                                <span class="meta-value">32</span>
+                            </div>
+                        </div>
+                        <p>The biggest tournament of the month featuring multiple maps and custom rooms. Limited slots available!</p>
+                        <a href="#" class="btn btn-primary" style="margin-top: auto;">Register Now</a>
+                    </div>
+                </div>
+                
+                <!-- Tournament 2 -->
+                <div class="tournament-card">
+                    <div class="tournament-map">
+                        <img src="/images/proleague.jpg" alt="Miramar Classic">
+                        <div class="map-name">Weekend Warrior</div>
+                    </div>
+                    <div class="tournament-info">
+                        <h3>Solo Showdown</h3>
+                        <div class="tournament-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Entry Fee</span>
+                                <span class="meta-value">₹199</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Prize Pool</span>
+                                <span class="meta-value">₹10,000</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Players</span>
+                                <span class="meta-value">100</span>
+                            </div>
+                        </div>
+                        <p>Show off your individual skills in this intense solo tournament. Every player for themselves!</p>
+                        <a href="#" class="btn btn-primary" style="margin-top: auto;">Register Now</a>
+                    </div>
+                </div>
+                
+                <!-- Tournament 3 -->
+                <div class="tournament-card">
+                    <div class="tournament-map">
+                        <img src="/images/main.png" alt="Vikendi Showdown">
+                        <div class="map-name">Beginner's Arena</div>
+                    </div>
+                    <div class="tournament-info">
+                        <h3>Newcomer Tournament</h3>
+                        <div class="tournament-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Entry Fee</span>
+                                <span class="meta-value">₹99</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Prize Pool</span>
+                                <span class="meta-value">₹5,000</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Teams</span>
+                                <span class="meta-value">25</span>
+                            </div>
+                        </div>
+                        <p>Perfect for new teams looking to get started in competitive play. Exclusive to teams with under 10 tournaments.</p>
+                        <a href="/join" class="btn btn-primary" style="margin-top: auto;">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="section-header">
+                <h2>PlayHive by the Numbers</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">50K+</div>
+                    <div class="stat-label">Registered Players</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">1000+</div>
+                    <div class="stat-label">Tournaments Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">₹10M+</div>
+                    <div class="stat-label">Prize Money Awarded</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">4.8/5</div>
+                    <div class="stat-label">User Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <% if (locals.currentUser) { %>
+                <h2>Ready to Compete?</h2>
+                <p>Join a tournament now and showcase your skills, win prizes, and become a legend!</p>
+                <a href="/tournament" class="btn btn-primary">Join Tournament</a>
+            <% } else { %>
+                <h2>Ready to Join the Battle?</h2>
+                <p>Create your account now and dive into the world of competitive BGMI gameplay. Showcase your skills, win prizes, and become a legend!</p>
+                <a href="/register" class="btn btn-primary">Sign Up Now</a>
+            <% } %>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About PlayHive</h3>
+                    <p>PlayHive is the premier platform for BGMI tournament management, offering seamless registration, competitive gameplay, and exciting prizes.</p>
+                    <div class="social-links">
+                        <a href="#"><i>FB</i></a>
+                        
+                        <a href="https://www.instagram.com/playhive_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i>IG</i></a>
+                        <a href="#"><i>YT</i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/tournament">Tournaments</a></li>
+                        <li><a href="/leaderboard">Leaderboard</a></li>
+                        <li><a href="#">Rules</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="./contact/contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: playhive04@gmail.com</p>
+                    <p>Phone: +91 8624077761</p>
+                    <p>Address: 123 Gaming Street, Esports City, India</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 PlayHive. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Basic JavaScript for home page interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation for stats numbers (simplified version)
+            const stats = document.querySelectorAll('.stat-value');
+            stats.forEach(stat => {
+                const targetValue = stat.innerText;
+                stat.innerText = '0';
+                
+                // Simple animation when scrolled into view
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            stat.innerText = targetValue;
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+                
+                observer.observe(stat);
+            });
+            
+            // Navigation highlighting
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    navLinks.forEach(l => l.style.color = '');
+                    this.style.color = 'var(--secondary)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

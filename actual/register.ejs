@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>PLAYHIVE LOGIN</title>
+    <style>
+     @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #0c0c0c;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(126, 34, 206, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(251, 146, 60, 0.2) 0%, transparent 50%);
+    color: var(--light);
+    line-height: 1.6;
+}
+::selection{
+  color: #fff;
+  background:  #7e22ce;
+}
+.container{
+  border: #000;
+  width: 330px;
+  color: aliceblue;
+  background: #7e22ce53;
+  text-align: center;
+  border-style: solid;
+  border-color: aliceblue;
+  border-radius: 15px;
+  padding: 50px 35px 10px 35px;
+  box-shadow: inset;
+}
+.container header{
+  font-size: 35px;
+  font-weight: 600;
+  margin: 0 0 30px 0;
+}
+.container .form-outer{
+  width: 100%;
+  overflow: hidden;
+}
+.container .form-outer form{
+  display: flex;
+  width: 400%;
+}
+.form-outer form .page{
+  width: 25%;
+  transition: margin-left 0.3s ease-in-out;
+}
+.form-outer form .page .title{
+  text-align: left;
+  font-size: 25px;
+  font-weight: 500;
+}
+.form-outer form .page .field{
+  width: 330px;
+  height: 45px;
+  margin: 45px 0;
+  display: flex;
+  position: relative;
+}
+
+form .page .field .label{
+  position: absolute;
+  top: -30px;
+  font-weight: 500;
+}
+form .page .field input{
+  height: 100%;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding-left: 15px;
+  font-size: 18px;
+}
+form .page .field select{
+  width: 100%;
+  padding-left: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+form .page .field button{
+  width: 100%;
+  height: calc(100% + 5px);
+  border: none;
+  background: #7e22ce;
+  margin-top: -20px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+}
+form .page .field button:hover{
+  background: #269a00;
+}
+form .page .btns button{
+  margin-top: -20px!important;
+}
+form .page .btns button.prev{
+  margin-right: 3px;
+  font-size: 17px;
+}
+form .page .btns button.next{
+  margin-left: 3px;
+}
+.container .progress-bar{
+  display: flex;
+  margin: 20px 0;
+
+}
+.container .progress-bar .step{
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+.container .progress-bar .step p{
+  font-weight: 500;
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+.progress-bar .step .bullet{
+  height: 25px;
+  width: 25px;
+  border: 2px solid #ffffff;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  transition: 0.2s;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 25px;
+}
+.progress-bar .step .bullet.active{
+  border-color:  #7e22ce;
+  background: #7e22ce;
+}
+.progress-bar .step .bullet span{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.progress-bar .step .bullet.active span{
+  display: none;
+}
+.progress-bar .step .bullet:before,
+.progress-bar .step .bullet:after{
+  position: absolute;
+  content: '';
+  bottom: 11px;
+  right: -51px;
+  height: 3px;
+  width: 44px;
+  background: #ffffff;
+}
+.progress-bar .step .bullet.active:after{
+  background:  #4ca200;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 0.3s linear forwards;
+}
+@keyframes animate {
+  100%{
+    transform: scaleX(1);
+  }
+}
+.progress-bar .step:last-child .bullet:before,
+.progress-bar .step:last-child .bullet:after{
+  display: none;
+}
+.progress-bar .step p.active{
+  color:  #7e22ce;
+  transition: 0.2s linear;
+}
+.progress-bar .step .check{
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.progress-bar .step .check.active{
+  display: block;
+  color: #fff;
+}
+
+
+
+    </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>Signup Form</header>
+      <% if(locals.error) { %>
+        <p style="color:red; margin-bottom: 15px;"><%= error %></p>
+      <% } %>
+      <div class="progress-bar">
+        <div class="step">
+          <p>Name</p>
+          <div class="bullet">
+            <span>1</span>
+          </div>
+          <div class="check fas fa-check"></div>
+        </div>
+        <div class="step">
+          <p>Contact</p>
+          <div class="bullet">
+            <span>2</span>
+          </div>
+          <div class="check fas fa-check"></div>
+        </div>
+        <div class="step">
+          <p>Game</p>
+          <div class="bullet">
+            <span>3</span>
+          </div>
+          <div class="check fas fa-check"></div>
+        </div>
+        <div class="step">
+          <p>Submit</p>
+          <div class="bullet">
+            <span>4</span>
+          </div>
+          <div class="check fas fa-check"></div>
+        </div>
+      </div>
+      <div class="form-outer">
+        <form action="/register" method="POST">
+          <div class="page slide-page">
+            <div class="title">Basic Info:</div>
+            <div class="field">
+              <div class="label">First Name</div>
+              <input type="text" name="fname" value="<%= locals.formData ? formData.fname : '' %>" required>
+            </div>
+            <div class="field" >
+              <div class="label">Last Name</div>
+              <input type="text" name="lname" value="<%= locals.formData ? formData.lname : '' %>" required>
+            </div>
+            <div class="field">
+              <button class="firstNext next">Next</button>
+            </div>
+            <p>Already Have An Account<a href="/login">Click Here</a></p><br>
+            <a href="/">HOME</a>
+          </div>                       
+
+
+          <div class="page">
+            <div class="title">Contact Info:</div>
+            <div class="field">
+              <div class="label">Email Address</div>
+              <input type="text" name="email"   required>
+            </div>
+            <div class="field">
+              <div class="label">Phone Number</div>
+              <input type="Number" name="phone"   required>
+            </div>
+            <div class="field btns">
+              <button class="prev-1 prev">Previous</button>
+              <button class="next-1 next">Next</button>
+            </div>
+          </div>
+
+          <div class="page">
+            <div class="title">Game Details:</div>
+            <div class="field">
+              <div class="label">BGMI Name:</div>
+              <input type="text" name="gamename"   required>
+            </div>
+            <div class="field">
+              <div class="label">BGMI Id :</div>
+              <input type="Number" name="gameid"   required>
+            </div>
+            <div class="field btns">
+              <button class="prev-2 prev">Previous</button>
+              <button class="next-2 next">Next</button>
+            </div>
+          </div>
+
+          <div class="page">
+            <div class="title">Login Details:</div>
+            <div class="field">
+              <div class="label">Username</div>
+              <input type="text" name="username"  required>
+            </div>
+            <div class="field">
+              <div class="label">Password</div>
+              <input type="password" name="password"   required>
+            </div>
+            <div class="field btns">
+              <button class="prev-3 prev">Previous</button>
+              <button type="submit" name="submit">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+<!-- #####################################################################################################################################################################################################################-->
+
+    </div>
+    
+    
+  </body>
+</html>
+

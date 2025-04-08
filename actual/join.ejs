@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>PlayHive - BGMI Tournament Management</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Play<span>Hive</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/tournament" style="color: var(--secondary);">Tournaments</a></li>
+                    <li><a href="/leaderboard">Leaderboard</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <% if (locals.currentUser) { %>
+                    <span class="user-welcome">Welcome, <%= currentUser.username %></span>
+                    <a href="/logout" class="btn btn-outline">Logout</a>
+                <% } else { %>
+                    <a href="/login" class="btn btn-outline">Login</a>
+                    <a href="/register" class="btn btn-primary">Register</a>
+                <% } %>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <% if(locals.error) { %>
+                <div class="alert alert-danger">
+                    <%= error %>
+                </div>
+            <% } %>
+            <% if(locals.success) { %>
+                <div class="alert alert-success">
+                    <%= success %>
+                </div>
+            <% } %>
+        </div>
+    </section>
+
+    <!-- Tournament Cards Section -->
+    <section class="tournaments">
+        <div class="container">
+            <div class="section-header">
+                <h2>Active Tournaments</h2>
+            </div>
+            <div class="tournament-grid">
+                <!-- Tournament Card 1 -->
+                <div class="tournament-card">
+                    <div class="tournament-map">
+                        <img src="/images/erangle.jpg" alt="Erangel Map">
+                        <div class="map-name">Erangel</div>
+                    </div>
+                    <div class="tournament-info">
+                        <div class="registration">
+                            <div class="price">₹199 Entry</div>
+                            <div class="slots">62/100 Registered</div>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 62%;"></div>
+                        </div>
+                        <div class="prize-distribution">
+                            <h4>Prize Distribution</h4>
+                            <ul class="prizes">
+                                <li>
+                                    <span class="position first">1st Place</span>
+                                    <span class="amount">₹5,000</span>
+                                </li>
+                                <li>
+                                    <span class="position second">2nd Place</span>
+                                    <span class="amount">₹2,500</span>
+                                </li>
+                                <li>
+                                    <span class="position third">3rd Place</span>
+                                    <span class="amount">₹1,000</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button id="rzp-button1" class="btn btn-primary">Pay ₹199 & Join</button>
+                    </div>
+                </div>
+
+                <!-- Tournament Card 2 -->
+                <div class="tournament-card">
+                    <div class="tournament-map">
+                        <img src="/images/miramar.jpg" alt="Miramar Map">
+                        <div class="map-name">Miramar</div>
+                    </div>
+                    <div class="tournament-info">
+                        <div class="registration">
+                            <div class="price">₹299 Entry</div>
+                            <div class="slots">78/100 Registered</div>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 78%;"></div>
+                        </div>
+                        <div class="prize-distribution">
+                            <h4>Prize Distribution</h4>
+                            <ul class="prizes">
+                                <li>
+                                    <span class="position first">1st Place</span>
+                                    <span class="amount">₹8,000</span>
+                                </li>
+                                <li>
+                                    <span class="position second">2nd Place</span>
+                                    <span class="amount">₹4,000</span>
+                                </li>
+                                <li>
+                                    <span class="position third">3rd Place</span>
+                                    <span class="amount">₹2,000</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button id="rzp-button2" class="btn btn-primary">Pay ₹299 & Join</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About PlayHive</h3>
+                    <p>PlayHive is the premier platform for BGMI tournament management, offering seamless registration, competitive gameplay, and exciting prizes.</p>
+                    <div class="social-links">
+                        <a href="#"><i>FB</i></a>
+                        <a href="#"><i>TW</i></a>
+                        <a href="#"><i>IG</i></a>
+                        <a href="#"><i>YT</i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/tournament">Tournaments</a></li>
+                        <li><a href="/leaderboard">Leaderboard</a></li>
+                        <li><a href="#">Rules</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: playhive04@gmail.com</p>
+                    <p>Phone: +91 8624077761</p>
+                    <p>Address: 123 Gaming Street, Esports City, India</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 PlayHive. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Razorpay payment for Tournament 1
+            document.getElementById('rzp-button1').addEventListener('click', function() {
+                // Create order first
+                fetch('/create-order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        amount: 199,
+                        tournamentId: "Erangle_199_15_march_2025_15.30",
+                        tournamentName: "Erangel Tournament"
+                    }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        var options = {
+                            "key": "rzp_test_YOUR_KEY_HERE", // Replace with your Razorpay Key ID
+                            "amount": "19900", // Amount in paise (199 INR)
+                            "currency": "INR",
+                            "name": "PlayHive",
+                            "description": "Tournament Entry Fee - Erangel",
+                            "image": "/images/logo.png", // Replace with your logo
+                            "order_id": data.order.id,
+                            "handler": function (response) {
+                                // Send payment details to server
+                                var paymentData = {
+                                    paymentId: response.razorpay_payment_id,
+                                    orderId: response.razorpay_order_id,
+                                    signature: response.razorpay_signature,
+                                    tournamentId: "Erangle_199_15_march_2025_15.30",
+                                    tournamentName: "Erangel Tournament",
+                                    amount: 199
+                                };
+                                
+                                // Send payment verification to server
+                                fetch('/verify-payment', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                    body: JSON.stringify(paymentData),
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.success) {
+                                        alert('Payment successful! You have joined the tournament.');
+                                        window.location.href = '/tournament';
+                                    } else {
+                                        alert('Payment verification failed. Please contact support.');
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                    alert('An error occurred during payment verification.');
+                                });
+                            },
+                            "prefill": {
+                                "name": "<%= locals.currentUser ? currentUser.username : '' %>",
+                                "email": "",
+                                "contact": ""
+                            },
+                            "theme": {
+                                "color": "#7e22ce"
+                            }
+                        };
+                        var rzp1 = new Razorpay(options);
+                        rzp1.open();
+                    } else {
+                        alert('Failed to create order. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while creating the order.');
+                });
+            });
+
+            // Razorpay payment for Tournament 2
+            document.getElementById('rzp-button2').addEventListener('click', function() {
+                // Create order first
+                fetch('/create-order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        amount: 299,
+                        tournamentId: "Miramar_299_16_march_2025_15.30",
+                        tournamentName: "Miramar Tournament"
+                    }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        var options = {
+                            "key": "rzp_test_YOUR_KEY_HERE", // Replace with your Razorpay Key ID
+                            "amount": "29900", // Amount in paise (299 INR)
+                            "currency": "INR",
+                            "name": "PlayHive",
+                            "description": "Tournament Entry Fee - Miramar",
+                            "image": "/images/logo.png", // Replace with your logo
+                            "order_id": data.order.id,
+                            "handler": function (response) {
+                                // Send payment details to server
+                                var paymentData = {
+                                    paymentId: response.razorpay_payment_id,
+                                    orderId: response.razorpay_order_id,
+                                    signature: response.razorpay_signature,
+                                    tournamentId: "Miramar_299_16_march_2025_15.30",
+                                    tournamentName: "Miramar Tournament",
+                                    amount: 299
+                                };
+                                
+                                // Send payment verification to server
+                                fetch('/verify-payment', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                    body: JSON.stringify(paymentData),
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.success) {
+                                        alert('Payment successful! You have joined the tournament.');
+                                        window.location.href = '/tournament';
+                                    } else {
+                                        alert('Payment verification failed. Please contact support.');
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                    alert('An error occurred during payment verification.');
+                                });
+                            },
+                            "prefill": {
+                                "name": "<%= locals.currentUser ? currentUser.username : '' %>",
+                                "email": "",
+                                "contact": ""
+                            },
+                            "theme": {
+                                "color": "#7e22ce"
+                            }
+                        };
+                        var rzp2 = new Razorpay(options);
+                        rzp2.open();
+                    } else {
+                        alert('Failed to create order. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while creating the order.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
